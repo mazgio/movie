@@ -28,7 +28,7 @@ public class ReviewService {
         Review reviewDel= reviewRepository.findById(imdbId);
         reviewRepository.delete(reviewDel);
 
-        mongoTemplateongoTemplate.update(Movie.class)
+        mongoTemplate.update(Movie.class)
                 .matching(Criteria.where("imdbId").is(imdbId));
 
 
