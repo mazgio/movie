@@ -1,5 +1,6 @@
 package dev.mazzuca.movies;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class ReviewController {
     return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/api/v1/reviews/delete/imdbId")
-    public ResponseEntity<Review> deleteReview(@PathVariable String imdbId ){
+    @DeleteMapping("/api/v1/reviews/delete/{imdbId}")
+    public ResponseEntity<Review> deleteReview(@PathVariable ObjectId imdbId){
         return new ResponseEntity<Review>(reviewService.deleteReview(imdbId), HttpStatus.CREATED);
     }
 }

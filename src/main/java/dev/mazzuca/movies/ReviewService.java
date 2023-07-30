@@ -1,5 +1,6 @@
 package dev.mazzuca.movies;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -24,14 +25,15 @@ public class ReviewService {
         return review;
     }
 
-    public Review deleteReview(String imdbId){
-        Review reviewDel= reviewRepository.findById(imdbId);
-        reviewRepository.delete(reviewDel);
+    public Review deleteReview(ObjectId imdbId) {
+        Review reviewDel= reviewRepository.deleteById(new Review(imdbId));
 
         mongoTemplate.update(Movie.class)
                 .matching(Criteria.where("imdbId").is(imdbId));
 
 
+
         return reviewDel;
     }
+
 }

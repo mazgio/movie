@@ -13,4 +13,7 @@ public interface ReviewRepository extends MongoRepository<Review, ObjectId> {
 
     Review findById(String imdbId);
 
+    Review deleteById(Review review);
+
+    Review deleteById();
 }
