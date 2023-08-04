@@ -1,28 +1,21 @@
 import './App.css';
-import api from './api/axiosConfig';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function App() {
 
   const [movies, setMovies] = useState();
-  const getMovies = async () => {
-    try {
-      const response = await api.get('/api/v1/movies');
-
-      console.log(response.data);
-    }
-    catch (err) {
-      console.log(err);
-    }
-  };
 
   useEffect(() => {
-    getMovies();
+    axios
+      .get("http://localhost:8080/api/v1/movies")
+      .then((res) => setMovies(res.data));
   }, []);
 
   return (
     <div className="App">
-
+      <h1>Movies App</h1>
+      {console.log(movies)}
     </div>
   );
 }
