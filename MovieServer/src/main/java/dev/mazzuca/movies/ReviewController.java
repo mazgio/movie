@@ -18,8 +18,8 @@ public class ReviewController {
     return new ResponseEntity<Review>(reviewService.createReview(payload.get("reviewBody"), payload.get("imdbId")), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/api/v1/reviews/delete/{imdbId}")
-    public ResponseEntity<Review> deleteReview(@PathVariable ObjectId imdbId){
-        return new ResponseEntity<Review>(reviewService.deleteReview(imdbId), HttpStatus.CREATED);
-    }
+   /* @DeleteMapping("/api/v1/reviews/delete/{id}")
+    public ResponseEntity<Review> deleteReview(@PathVariable ObjectId id){
+        return new ResponseEntity<Review>(reviewService.deleteReview(id), HttpStatus.CREATED);
+    }*/
 }

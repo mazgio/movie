@@ -25,15 +25,10 @@ public class ReviewService {
         return review;
     }
 
-    public Review deleteReview(ObjectId imdbId) {
+    /*public Review deleteReview(ObjectId id) {
         Review reviewDel= reviewRepository.deleteById(imdbId);
 
-        mongoTemplate.update(Movie.class)
-                .matching(Criteria.where("imdbId").is(imdbId));
-
-
-
         return reviewDel;
-    }
+    }*/
 
 }
