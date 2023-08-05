@@ -19,7 +19,7 @@ const Reviews = ({ movie, reviews, setReviews }) => {
         const rev = revText.current;
 
         try {
-            const response = await axios.post("/api/v1/reviews", { reviewBody: rev.value, imdbId: movieId });
+            const response = await axios.post("http://localhost:8080/api/v1/reviews", { reviewBody: rev.value, imdbId: movieId });
             console.log(response.data);
             const updatedReviews = [...reviews, { body: rev.value }];
 
@@ -39,8 +39,10 @@ const Reviews = ({ movie, reviews, setReviews }) => {
                 <Col><h3>Reviews</h3></Col>
             </Row>
             <Row className="mt-2">
-                <Col>
+                <Col >
+
                     <img src={movie?.poster} alt="" />
+
                 </Col>
                 <Col>
                     {
