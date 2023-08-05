@@ -12,11 +12,17 @@ function App() {
       .then((res) => setMovies(res.data));
   }, []);
 
+
+  if (!movies) {
+    return null;
+  }
   return (
     <div className="App">
       <h1>Movies App</h1>
-      {console.log(movies)}
-    </div>
+      {movies.map((movie, index) => {
+        return < h2 key={index}> {movie.title}</h2>;
+      })}
+    </div >
   );
 }
 
