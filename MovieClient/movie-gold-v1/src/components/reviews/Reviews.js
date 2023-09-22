@@ -35,7 +35,9 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
         }
 
     };
-
+    if (!reviews) {
+        return null;
+    }
     return (
         <Container>
             <Row>
